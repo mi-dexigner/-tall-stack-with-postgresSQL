@@ -19,11 +19,12 @@ class Register extends Component
     public $password = '';
     public $password_confirmation = '';
 
-
+    
     public function render()
     {
-        
-        return view('livewire.auth.register');
+      
+     return view('livewire.auth.register');
+      
     }
 
     public function register(){

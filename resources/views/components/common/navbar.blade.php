@@ -30,6 +30,6 @@
     </div>
 
     <livewire:auth.logout lazy />
-    {{-- <livewire:files.add-file lazy /> --}}
+    <livewire:files.add-file lazy />
 
 </div>

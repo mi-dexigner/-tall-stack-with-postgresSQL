@@ -3,6 +3,7 @@
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Dashboard;
+use App\Livewire\Files\ShowFile;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -17,7 +18,7 @@ Route::get("/login",Login::class)->name("login");
 
 
 Route::middleware('auth')->group(function(){
-    Route::get("/",Dashboard::class)->name("dashboard");
-    // Route::get("/file/{id}", ShowFile::class)->name("show.file")->lazy();
+    Route::get("/",Dashboard::class)->name("dashboard")->lazy();
+    Route::get("/file/{id}", ShowFile::class)->name("show.file")->lazy();
 
 });

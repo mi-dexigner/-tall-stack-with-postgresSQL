@@ -1,5 +1,6 @@
 <div>
     {{-- The best athlete wants his opponent at his best. --}}
+   
     <div class="px-2 flex justify-center flex-col items-center">
         <input type="text" class="input input-bordered w-96 rounded-2xl mb-4" placeholder="Search..."
             wire:model.live='search' />
@@ -7,9 +8,9 @@
             @if (count($files) > 0)
                 @foreach ($files as $key => $file)
                     <div class="card w-96 bg-base-100  shadow-xl">
-                        <a href="" wire:navigate>
+                    <a href="{{ route('show.file', ['id' => $file->id]) }}" wire:navigate>
                             <figure><img src="{{ asset('storage/' . $file->image) }}" alt="your_img"
-                                    class="h-52 object-cover w-full" />
+                                    class="h-96 object-contain w-full" />
                             </figure>
                         </a>
 
@@ -19,6 +20,7 @@
                                     <p class="card-title">{{ $file->title }}</p>
                                     <p>{{ $file->created_at->format('d-m-Y h:m:s a') }}</p>
                                 </div>
+                                <livewire:files.delete-file :id="$file->id" :key="$key" />
                                 
                             </div>
 

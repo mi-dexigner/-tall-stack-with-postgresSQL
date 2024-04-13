@@ -19,6 +19,7 @@
         document.querySelector('html').setAttribute('data-theme', this.theme);
     }
 }">
+<x-common.toast />
         <x-common.navbar/>
         {{ $slot }}
 

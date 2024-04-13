@@ -35,5 +35,7 @@ class AddFile extends Component
 
 // php artisan make:model Files -m
 // php artisan make:livewire Files/AddFile
+// php artisan make:livewire Files/ShowFile
+// php artisan make:livewire Files/DeleteFile
 // php artisan storage:link
 }

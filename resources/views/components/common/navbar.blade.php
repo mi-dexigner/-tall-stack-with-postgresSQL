@@ -1,7 +1,7 @@
 <div>
     <div class="navbar bg-base-100">
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">
+            <a class="btn btn-ghost text-xl" href="{{ route('dashboard') }}" wire:navigate>
                 <img src="{{ asset('images/logo_192.png') }}" class="w-8 h-8 object-contain" />
                 My Files</a>
         </div>

@@ -11,4 +11,6 @@ class Files extends Model
     
     protected $fillable = ['title', 'image', 'user_id'];
 
+    protected $dates = ["created_at"];
+
 }

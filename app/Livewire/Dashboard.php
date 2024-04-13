@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Files;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -16,6 +17,8 @@ class Dashboard extends Component
 
     public function render()
     {
-        return view('livewire.dashboard');
+        $user = auth()->user();
+        $files = Files::select('*')->where('user_id', $user->id)->where('title', 'ilike', '%' . $this->search . '%')->orderBy('id', 'desc')->cursorPaginate(20);
+        return view('livewire.dashboard', ['files' => $files]);
     }
 }

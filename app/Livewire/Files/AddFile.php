@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Files;
 
+use App\Models\Files;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -26,11 +27,13 @@ class AddFile extends Component
 
         $user = Auth::guard('web')->user();
         $filename = $this->image->store("images_" . $user->id);
-        // Files::create(["title" => $this->title, "image" => $filename, 'user_id' => $user->id]);
+        Files::create(["title" => $this->title, "image" => $filename, 'user_id' => $user->id]);
         session()->flash("success", "File uploaded successfully!");
         $this->dispatch('file-added');
         $this->redirectRoute('dashboard', navigate: true);
     }
 
 // php artisan make:model Files -m
+// php artisan make:livewire Files/AddFile
+// php artisan storage:link
 }

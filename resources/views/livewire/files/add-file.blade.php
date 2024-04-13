@@ -5,14 +5,8 @@
         <div class="modal-box max-w-xs">
            <div class="flex items-center justify-between">
            <h3 class="font-bold text-lg">AddFile</h3>
-           <form method="dialog" x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true"
-                x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false"
-                x-on:livewire-upload-error="uploading = false"
-                x-on:livewire-upload-progress="progress = $event.detail.progress">
-                <!-- Progress Bar -->
-                <div x-show="uploading">
-                    <progress max="100" x-bind:value="progress"></progress>
-                </div>
+           <form method="dialog">
+                
             <button class="btn btn-sm btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
         <path d="M18 6 6 18"/>
@@ -22,7 +16,15 @@
            </form>
            </div>
             <div class="mt-3">
-                <form wire:submit='store'>
+                <form wire:submit='store' x-data="{ uploading: false, progress: 0 }" x-on:livewire-upload-start="uploading = true"
+                x-on:livewire-upload-finish="uploading = false" x-on:livewire-upload-cancel="uploading = false"
+                x-on:livewire-upload-error="uploading = false"
+                x-on:livewire-upload-progress="progress = $event.detail.progress">
+
+                <!-- Progress Bar -->
+                <div x-show="uploading">
+                    <progress max="100" x-bind:value="progress"></progress>
+                </div>
                 <div class="form-control w-full max-w-xs mb-3">
                 <div class="label mb-3">
     <span class="label-text">Title</span>

@@ -18,4 +18,6 @@ Route::get("/login",Login::class)->name("login");
 
 Route::middleware('auth')->group(function(){
     Route::get("/",Dashboard::class)->name("dashboard");
+    // Route::get("/file/{id}", ShowFile::class)->name("show.file")->lazy();
+
 });
